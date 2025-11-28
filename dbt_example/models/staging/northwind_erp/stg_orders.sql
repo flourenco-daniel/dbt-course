@@ -1,7 +1,9 @@
-config(
+-- If you use the config block, you are overriding what is set in dbt_project.yml.
+{{ config(
     materialized='table',
-    schema='staging_northwind_erp'  # Define o schema de destino para staging_northwind_erp
-) -- em caso do uso do config, eu estou sobrescrevendo o que está no dbt_project.yml.
+    schema='staging_northwind_erp'  
+) }}
+--Define the target schema for staging_northwind_erp
 
 WITH orders as (
   SELECT
@@ -18,11 +20,11 @@ WITH orders as (
     ship_city,
     ship_region,
     ship_postal_code,
-    ship_country,
     CURRENT_TIMESTAMP() AS loaded_at
 
   FROM
-    {{ source('northwind', 'orders') }})
+    {{ source('northwind', 'orders') }}
+)
 
 select
     *
