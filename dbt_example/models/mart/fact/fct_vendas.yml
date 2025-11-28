@@ -1,0 +1,11 @@
+version: 2
+
+models:
+  - name: fct_vendas
+    description: "Tabela fato de vendas, agregando dados de pedidos e detalhes dos pedidos."
+    columns:
+      - name: order_month
+        description: "Identificador único do pedido."
+        tests:
+          - not_null
+          - unique

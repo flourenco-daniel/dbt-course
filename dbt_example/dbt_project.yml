@@ -24,7 +24,7 @@ models:
       tags: ['staging']
     
     intermediate:
-      materialized: ephemeral
+      materialized: ephemeral #views criam um objeto físico de banco de dados (uma "visualização") que é recriado a cada execução, enquanto ephemeral não cria nenhum objeto físico
       tags: ['intermediate']
 
     marts:
