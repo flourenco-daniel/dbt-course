@@ -1,0 +1,27 @@
+version: 2
+
+#posso colocar mais de uma source nesses sources
+sources:
+  name: finance
+  descripition: "dados de finance" 
+  schema: dataset_financial
+  table: 
+    name: financial
+    descripition: "Dados brutos do sistema financeiro da empresa"
+    columns:
+      name: Segment
+      name: Country
+      name: Product 
+      name: Discount Band 
+      name: Units Sold 
+      name: Manufacturing Price 
+      name: Sale Price 
+      name: Gross Sales 
+      name: Discounts 
+      name: Sales 
+      name: COGS 
+      name: Profit 
+      name: Date
+      name: Month Number
+      name: Month Name 
+      name: Year
