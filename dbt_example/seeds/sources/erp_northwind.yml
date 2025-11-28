@@ -1,0 +1,29 @@
+version: 2
+
+#posso colocar mais de uma source nesses sources
+sources:
+  - name: northwind
+    description: "dados do erp northwind"
+    schema: dbt_seeds
+    loader: bigquery
+    loaded_at_field: loaded_at ##criar uma coluna de controle de carga de dados
+    tables: 
+      - name: orders
+        description: "Dados brutos do sistema financeiro da empresa" # Corrigido de 'descripition'
+        columns:
+          - name: order_id
+              - unique
+              - not_null
+          - name: customer_id
+          - name: employee_id
+          - name: order_date
+          - name: required_date
+          - name: shipped_date
+          - name: ship_via
+          - name: freight
+          - name: ship_name
+          - name: ship_address
+          - name: ship_city
+          - name: ship_region
+          - name: ship_postal_code
+          - name: ship_country
