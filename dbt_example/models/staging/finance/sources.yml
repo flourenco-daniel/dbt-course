@@ -5,23 +5,57 @@ sources:
   name: finance
   descripition: "dados de finance" 
   schema: dataset_financial
+  loader: bigquery
+  loaded_at_field: loaded_at ##criar uma coluna de controle de carga de dados (última vez que os dados foram carregados)
+  meta: #metadados adicionais sobre a source
+    owner: "daniel"
+    last_updated: "2024-06-10" ##último update desta source
+    team: "data-analytics"
+  freshness: #configuração de frescor dos dados
+    warn_after: 
+      count: 12
+      period: hour #se os dados não forem atualizados em 12 horas, emitir um aviso
+    error_after:
+      count: 24
+      period: hour #se os dados não forem atualizados em 24 horas, emitir um erro
+  
   table: 
     name: financial
     descripition: "Dados brutos do sistema financeiro da empresa"
     columns:
       name: Segment
+      descripition: "Segmento de mercado"
       name: Country
+      descripition: "País da venda"
       name: Product 
+      descripition: "Produto vendido"
       name: Discount Band 
+      descripition: "Faixa de desconto aplicada"
       name: Units Sold 
+      descripition: "Número de unidades vendidas"
       name: Manufacturing Price 
+      descripition: "Preço de fabricação do produto"
       name: Sale Price 
+      descripition: "Preço de venda do produto"
       name: Gross Sales 
+      descripition: "Valor bruto das vendas"
       name: Discounts 
+      descripition: "Valor dos descontos aplicados"
       name: Sales 
+      descripition: "Valor líquido das vendas"
       name: COGS 
+      descripition: "Custo dos produtos vendidos"
       name: Profit 
+      descripition: "Lucro obtido"
       name: Date
+      descripition: "Data da venda"
       name: Month Number
+      descripition: "Número do mês da venda"
       name: Month Name 
+      descripition: "Nome do mês da venda"
       name: Year
+      descripition: "Ano da venda"
+      #exemplo de caso em que quero realizar um teste para um pk abaixo
+      #tests:
+        #- not_null
+        #- unique
