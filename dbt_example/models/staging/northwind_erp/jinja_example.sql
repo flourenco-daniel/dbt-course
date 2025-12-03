@@ -25,7 +25,7 @@ FROM
 WHERE
     data_venda >= '{{ (execute_at | as timestamp).strftime("%Y-%m-01") }}' --Primeiro dia do mês atual com função de data do Jinja
 
--- Estrutura de repetição for com Jinja
+-- Estrutura de repetição loop for com Jinja
 
 SELECT
     cliente_id,
@@ -36,3 +36,15 @@ FROM
     vendas
 GROUP BY
     cliente_id --Cria uma coluna para cada mês do ano com o total de vendas por cliente
+
+-- Estrutura condicional if com Jinja
+SELECT
+    *
+FROM
+    vendas
+WHERE
+    {% if flag_ativo == true%}
+        data_venda >= CURRENT_DATE - INTERVAL '30 days' --Se a flag for verdadeira, filtra vendas dos últimos 30 dias
+    {% else %}
+        data_venda IS NOT NULL  --Se a flag for falsa, retorna todas as vendas com data não nula
+    {% endif %}
