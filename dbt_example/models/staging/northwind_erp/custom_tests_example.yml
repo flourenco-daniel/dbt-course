@@ -1,0 +1,18 @@
+version: 2
+
+models:
+  - name: clientes
+    description: "Tabela de clientes com testes customizados"
+    columns:
+      - name: cliente_id
+        tests:
+          - not_null
+          - unique
+          - have_sales
+      - name: email
+        tests:
+          - valid_email
+      - name: telefone
+        tests:
+          - dbt_utils.phone_number_format:
+              field: telefone

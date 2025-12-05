@@ -38,3 +38,8 @@ seeds:
   tags: ['seeds']
 
 # debug: true
+
+snapshots:
+  +schema: snapshots
+  +tags: ['snapshots']
+  schema: snapshots
