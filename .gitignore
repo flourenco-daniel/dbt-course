@@ -2,3 +2,6 @@
 /logs
 projeto-dbt-479500-a3e67a36f72b.json
 .env
+.
+dbt_example/seeds/erp_northwind/
+dbt_example/seeds/Country.csv

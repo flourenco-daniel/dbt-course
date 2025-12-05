@@ -20,3 +20,7 @@ SELECT
     *
 FROM
     atualizacoes
+
+--em caso de deletions da source, é necessário criar uma estratégia para lidar com isso, como por exemplo:
+--uma coluna de soft delete
+--ter muito cuidado com a chave única, para evitar duplicidades ou a falta de atualizações. Uma boa prática é usar data de atualização.

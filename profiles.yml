@@ -4,7 +4,7 @@ dbt_example:
     dev:
       type: bigquery
       method: service-account
-      project: GCP_PROJECT_ID
-      dataset: DBT_DATASET_NAME
+      project: projeto-dbt-479500
+      dataset: dbt
       threads: 4
       keyfile: /home/daniel/dbt-course/projeto-dbt-479500-a3e67a36f72b.json
