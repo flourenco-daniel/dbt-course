@@ -1,0 +1,18 @@
+version: 2
+
+tables:
+  - name: vendas
+    description: "tabela de vendas"
+    columns:
+      - name: total_venda
+        description: "identificador unico da venda"
+        tests:
+          dbt_expectations.expect_column_values_to_not_be_null:
+            min_value: 0
+            max_value: 1000000
+      - name: data_venda
+        description: "data em que a venda foi realizada"
+        tests:
+          - dbt_expectations.expect_column_values_to_be_between:
+              min_value: '2020-01-01'
+              max_value: '2023-12-31'
